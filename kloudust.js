@@ -25,8 +25,10 @@ module.exports.kloudust = async function(inprocessArgs) {
         KLOUD_CONSTANTS.LOGINFO(`Starting execution: ${fileToExec}`);
 
         fileToExec = fs.readFileSync(fileToExec);
-        for (execLine of fileToExec.split(";")) if (!await _execCommand(utils.parseArgs(execLine)))
-            KLOUD_CONSTANTS.EXITFAILED();
+        for (const execLine of fileToExec.split(";")) {
+            if (execLine.trim() == "" || execLine.trim().startsWith("#")) continue;    // skip empty or comment lines
+            if (!await _execCommand(utils.parseArgs(execLine))) KLOUD_CONSTANTS.EXITFAILED();
+        }
 
         KLOUD_CONSTANTS.EXITOK();
     } else if (args.execute) {
