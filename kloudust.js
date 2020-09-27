@@ -7,6 +7,7 @@ global.KLOUD_CONSTANTS = require(`${__dirname}/lib/constants.js`);
 
 const fs = require("fs");
 const path = require("path");
+const colors = require("colors");
 const args = require("commander");
 const utils = require(`${KLOUD_CONSTANTS.LIBDIR}/utils.js`);
 
@@ -20,6 +21,7 @@ module.exports.kloudust = async function(inprocessArgs) {
 
     if (args.colors) KLOUD_CONSTANTS.COLORED_OUT = true;
 
+    KLOUD_CONSTANTS.LOGBARE("Kloudust - (C) TekMonks\nHybrid Cloud Platform\n\n");
     if (args.file) {
         let fileToExec = _resolvePath(args.file);
         KLOUD_CONSTANTS.LOGINFO(`Starting execution: ${fileToExec}`);
@@ -33,7 +35,7 @@ module.exports.kloudust = async function(inprocessArgs) {
         KLOUD_CONSTANTS.EXITOK();
     } else if (args.execute) {
         if (await _execCommand(utils.parseArgs(args.execute))) KLOUD_CONSTANTS.EXITOK(); else KLOUD_CONSTANTS.EXITFAILED();
-    } else runInterpretor();
+    } else {args.outputHelp(t=>colors.red(t)); process.exit(1);}
 }
 
 async function _execCommand(params) {
