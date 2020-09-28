@@ -1,1 +1,1 @@
-@node kloudust
+@node kloudust %*
