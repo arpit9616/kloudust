@@ -15,11 +15,11 @@ module.exports.kloudust = async function(inprocessArgs) {
     args.description("Kloudust - (C) TekMonks\nHybrid Cloud Platform")
     args.version("Kloudust v0.8.0");
     args.option("-f, --file <path>", "required, full path to the build file");
-    args.option("-c, --colors", "produce colored output");
+    args.option("-c, --color", "produce colored output");
     args.option("-e, --execute <command>", "execute single command and exit");
     args.parse(inprocessArgs||process.argv);
 
-    if (args.colors) KLOUD_CONSTANTS.COLORED_OUT = true;
+    if (args.color) KLOUD_CONSTANTS.COLORED_OUT = true;
 
     KLOUD_CONSTANTS.LOGBARE("Kloudust - (C) TekMonks\nHybrid Cloud Platform\n\n");
     if (args.file) {
