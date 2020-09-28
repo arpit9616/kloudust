@@ -7,12 +7,102 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Kloudust",
+            "name": "Kloudust - Init System",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust.js",
-            "args": ["-c","-e", "initHost centos8 ip root password \"be:27:56:ec:df:b0:69:9d:1a:35:d0:9a:ed:37:51:9c\""]
+            "args": ["-c","-e", "initHost centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Add Image",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "addImage centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Create Windows 10 VDI",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "createISOWindows10VDI centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 \\\"Windows 10 VDI - 01\\\" 2 8192 30 windows10.iso"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Create Fedora 31 VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "createFedora31VM centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Delete VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "deleteVM centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Forceshut VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "powerOpVM centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 forcestop"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Reboot Host",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "rebootHost centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - List Catalog",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "listCatalog centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - List VMs",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "listVMs centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" all"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Find VNC",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust.js",
+            "args": ["-c","-e", "findVNC centos8 <IP> root <Password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
         }
     ]
 }
