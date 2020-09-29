@@ -11,7 +11,7 @@ if ! virt-install --name {1} \
     --os-variant win10 --vcpus {3} --ram {4} \
     --graphics vnc,listen=0.0.0.0 --noautoconsole \
     --rng /dev/urandom \
-    --network bridge=virbr0 \
+    --network network=default \
     --controller type=scsi,model=virtio-scsi \
     --disk path=/kloudust/disks/{1}.qcow2,size={5},format=qcow2 \
     --disk /kloudust/drivers/virtio-win_amd64.vfd,device=floppy \

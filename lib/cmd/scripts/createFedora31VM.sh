@@ -10,7 +10,7 @@ if ! virt-install --name {1} --metadata title="{2}" \
     --vcpus {3} --ram {4} \
     --disk path=/kloudust/disks/{1}.img,size={5} \
     --os-type linux --os-variant fedora31 \
-    --network bridge=virbr0 \
+    --network network=default \
     --graphics vnc,listen=0.0.0.0 --noautoconsole \
     {6} \
     --virt-type kvm; then exitFailed; fi
