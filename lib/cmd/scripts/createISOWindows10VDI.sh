@@ -5,6 +5,11 @@ function exitFailed() {
     exit 1
 }
 
+if virsh list --all | grep {1}; then
+    printf "VM already exists. Use a different name.\n"
+    exitFailed
+fi
+
 printf "Creating Windows 10 VDI\n"
 if ! virt-install --name {1} \
     --metadata title="{2}" \
