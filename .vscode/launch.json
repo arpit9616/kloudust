@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "initHost centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+            "args": ["-c","-e", "initHost centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
         },
         {
             "type": "node",
@@ -22,7 +22,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "addImage centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
+            "args": ["-c","-e", "addImage centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
         },
         {
             "type": "node",
@@ -32,7 +32,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createISOWindows10VDI centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 \\\"Windows 10 VDI - 01\\\" 2 8192 30 windows10.iso"]
+            "args": ["-c","-e", "createISOWindows10VDI centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 \\\"Windows 10 VDI - 01\\\" 2 8192 30 windows10.iso"]
         },
         {
             "type": "node",
@@ -42,7 +42,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createFedora31VM centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
+            "args": ["-c","-e", "createFedora31VM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
         },
         {
             "type": "node",
@@ -52,7 +52,47 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "deleteVM centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
+            "args": ["-c","-e", "deleteVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Start VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 start"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Reboot VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 reboot"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Set VM to autostart",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 autostart"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Set VM to not autostart",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 noautostart"]
         },
         {
             "type": "node",
@@ -62,7 +102,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 forcestop"]
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 forcestop"]
         },
         {
             "type": "node",
@@ -72,7 +112,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "rebootHost centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+            "args": ["-c","-e", "rebootHost centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
         },
         {
             "type": "node",
@@ -82,7 +122,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listCatalog centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+            "args": ["-c","-e", "listCatalog centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
         },
         {
             "type": "node",
@@ -92,7 +132,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listVMs centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" all"]
+            "args": ["-c","-e", "listVMs centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" all"]
         },
         {
             "type": "node",
@@ -102,7 +142,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "findVNC centos8 <ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
+            "args": ["-c","-e", "findVNC centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
         }
     ]
 }
