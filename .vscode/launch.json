@@ -17,12 +17,22 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Kloudust - Add Image",
+            "name": "Kloudust - Add Image - Windows 10",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
             "args": ["-c","-e", "addImage centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Add Image - Ubuntu 20.04",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "addImage centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://mirror.pit.teraswitch.com/ubuntu-releases/20.04/ubuntu-20.04.1-desktop-amd64.iso ubuntu20.iso"]
         },
         {
             "type": "node",
@@ -43,6 +53,46 @@
             ],
             "program": "${workspaceFolder}\\kloudust",
             "args": ["-c","-e", "createFedora31VM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Create Ubuntu 20.04 VDI",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "createUbuntu20VDI centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_01 \\\"Ubuntu 20 VM - 01\\\" 2 8192 30 ubuntu20.iso"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Rename VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "renameVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_01"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Clone VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "cloneVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_01 ubuntu20_02"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Snapshot VM",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "snapshot centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
         },
         {
             "type": "node",
