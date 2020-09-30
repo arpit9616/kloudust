@@ -9,7 +9,7 @@ printf "Updating the system\n"
 if ! sudo yum -y update; then exitFailed; fi
 
 printf "\n\nSecuring the system against SSH attacks\n"
-sudo yum -y install epel-release
+if ! sudo yum -y install epel-release; then exitFailed; fi
 if ! sudo yum -y install fail2ban; then exitFailed; fi
 cat <<EOF > /etc/fail2ban/jail.local
 [DEFAULT]
