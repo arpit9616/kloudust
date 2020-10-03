@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "initHost centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+            "args": ["-c","-e", "initHost centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
         },
         {
             "type": "node",
@@ -22,7 +22,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "addImage centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
+            "args": ["-c","-e", "addImage centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
         },
         {
             "type": "node",
@@ -32,7 +32,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "addImage centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://mirror.pit.teraswitch.com/ubuntu-releases/20.04/ubuntu-20.04.1-desktop-amd64.iso ubuntu20.iso"]
+            "args": ["-c","-e", "addImage centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" https://mirror.pit.teraswitch.com/ubuntu-releases/20.04/ubuntu-20.04.1-desktop-amd64.iso ubuntu20.iso"]
         },
         {
             "type": "node",
@@ -42,7 +42,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createISOWindows10VDI centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 \\\"Windows 10 VDI - 01\\\" 2 8192 30 windows10.iso"]
+            "args": ["-c","-e", "createISOWindows10VDI centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 \\\"Windows 10 VDI - 01\\\" 4 6144 40 windows10.iso"]
         },
         {
             "type": "node",
@@ -52,7 +52,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createFedora31VM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
+            "args": ["-c","-e", "createFedora31VM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
         },
         {
             "type": "node",
@@ -62,7 +62,27 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createUbuntu20VDI centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_01 \\\"Ubuntu 20 VM - 01\\\" 2 8192 30 ubuntu20.iso"]
+            "args": ["-c","-e", "createUbuntu20VDI centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_01 \\\"Ubuntu 20 VM - 01\\\" 2 8192 30 ubuntu20.iso"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Restore snapshot",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "restoreSnapshot centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - VM Info",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "getVMInfo centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01"]
         },
         {
             "type": "node",
@@ -72,7 +92,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "renameVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_01"]
+            "args": ["-c","-e", "renameVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_01"]
         },
         {
             "type": "node",
@@ -82,7 +102,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "cloneVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_01 ubuntu20_02"]
+            "args": ["-c","-e", "cloneVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_01 ubuntu20_02"]
         },
         {
             "type": "node",
@@ -92,7 +112,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "snapshot centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
+            "args": ["-c","-e", "snapshot centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
         },
         {
             "type": "node",
@@ -102,7 +122,17 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "deleteVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
+            "args": ["-c","-e", "deleteVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Delete VM Snapshot",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "deleteSnapshot centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
         },
         {
             "type": "node",
@@ -112,7 +142,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 start"]
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 start"]
         },
         {
             "type": "node",
@@ -122,7 +152,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 reboot"]
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 reboot"]
         },
         {
             "type": "node",
@@ -132,7 +162,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 autostart"]
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 autostart"]
         },
         {
             "type": "node",
@@ -142,7 +172,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 noautostart"]
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01 noautostart"]
         },
         {
             "type": "node",
@@ -152,7 +182,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 forcestop"]
+            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" windows10_01 forcestop"]
         },
         {
             "type": "node",
@@ -162,7 +192,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "rebootHost centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+            "args": ["-c","-e", "rebootHost centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
         },
         {
             "type": "node",
@@ -172,7 +202,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listCatalog centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
+            "args": ["-c","-e", "listCatalog centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\""]
         },
         {
             "type": "node",
@@ -182,7 +212,17 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listVMs centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" all"]
+            "args": ["-c","-e", "listVMs centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" all"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - List VM Snapshots",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-e", "listSnapshots centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" ubuntu20_02"]
         },
         {
             "type": "node",
@@ -192,7 +232,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "findVNC centos8 <host ip> root <host root password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
+            "args": ["-c","-e", "findVNC centos8 <host ip> root <password> \"5c:2d:50:9e:6e:d9:31:32:1b:df:7b:c0:73:59:65:0d\" fedora31_01"]
         }
     ]
 }

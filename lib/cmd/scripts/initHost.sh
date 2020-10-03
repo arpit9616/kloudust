@@ -35,7 +35,9 @@ printf "\n\nCreating Kloudust Structures\n"
 if ! mkdir -p /kloudust/catalog/; then exitFailed; fi
 if ! mkdir -p /kloudust/drivers/; then exitFailed; fi
 if ! mkdir -p /kloudust/disks/; then exitFailed; fi
+if ! mkdir -p /kloudust/metadata/; then exitFailed; fi
 if ! mkdir -p /kloudust/snapshots/; then exitFailed; fi
+if ! mkdir -p /kloudust/temp/; then exitFailed; fi
 if ! chgrp -R qemu /kloudust/; then exitFailed; fi
 
 
