@@ -45,5 +45,8 @@ printf "\n\nDownloading additional drivers\n"
 curl -L https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win_amd64.vfd > /kloudust/drivers/virtio-win_amd64.vfd
 
 
+printf "\n\n\Changing password, Kloudust is taking over the system\n"
+echo "{1}" | passwd --stdin `whoami` > /dev/null
+
 printf "\n\nSystem initialization finished successfully\n"
 exit 0

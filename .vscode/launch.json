@@ -7,12 +7,22 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Kloudust - Init System",
+            "name": "Kloudust - Add User",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "initHost centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\""]
+            "args": ["-c","-e","addUser root@tekmonks.com \\\"TekMonks Root\\\" Kloudust#$562A TekMonks"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Add Host",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","addHost centos8 188.214.132.8 root DLT4TekMonks#$56 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\""]
         },
         {
             "type": "node",
@@ -22,7 +32,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "addImage centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","addImage centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" https://app.box.com/shared/static/1tmltstjq2gd2yxmk7brpnq2igbdriau windows10.iso"]
         },
         {
             "type": "node",
@@ -32,7 +42,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "addImage centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" https://mirror.pit.teraswitch.com/ubuntu-releases/20.04/ubuntu-20.04.1-desktop-amd64.iso ubuntu20.iso"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","addImage centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" https://mirror.pit.teraswitch.com/ubuntu-releases/20.04/ubuntu-20.04.1-desktop-amd64.iso ubuntu20.iso"]
         },
         {
             "type": "node",
@@ -42,7 +52,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "addImage centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" https://mirrors.oit.uci.edu/centos/8.2.2004/isos/x86_64/CentOS-8.2.2004-x86_64-minimal.iso centos8.iso"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","addImage centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" https://mirrors.oit.uci.edu/centos/8.2.2004/isos/x86_64/CentOS-8.2.2004-x86_64-minimal.iso centos8.iso"]
         },
         {
             "type": "node",
@@ -52,7 +62,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createISOWindows10VDI centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" windows10_01 \\\"Windows 10 VDI - 01\\\" 2 8192 40 windows10.iso"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","createISOWindows10VDI centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" windows10_01 \\\"Windows 10 VDI - 01\\\" 2 8192 40 windows10.iso"]
         },
         {
             "type": "node",
@@ -62,7 +72,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createFedora31VM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","createFedora31VM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30"]
         },
         {
             "type": "node",
@@ -72,7 +82,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createUbuntu20VDI centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_01 \\\"Ubuntu 20 VM - 01\\\" 2 8192 30 ubuntu20.iso"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","createUbuntu20VDI centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_01 \\\"Ubuntu 20 VM - 01\\\" 2 8192 30 ubuntu20.iso"]
         },
         {
             "type": "node",
@@ -82,7 +92,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "createCentOS8VM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" centos8_01 \\\"CentOS 8 VM - 01\\\" 2 8192 30 centos8.iso"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","createCentOS8VM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" centos8_01 \\\"CentOS 8 VM - 01\\\" 2 8192 30 centos8.iso"]
         },
         {
             "type": "node",
@@ -92,7 +102,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "restoreSnapshot centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","restoreSnapshot centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
         },
         {
             "type": "node",
@@ -102,7 +112,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "getVMInfo centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" windows10_01"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","getVMInfo centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" windows10_01"]
         },
         {
             "type": "node",
@@ -112,7 +122,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "renameVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_01"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","renameVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_01"]
         },
         {
             "type": "node",
@@ -122,7 +132,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "cloneVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_01 ubuntu20_02"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","cloneVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_01 ubuntu20_02"]
         },
         {
             "type": "node",
@@ -132,7 +142,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "snapshot centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","snapshot centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
         },
         {
             "type": "node",
@@ -142,7 +152,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "deleteVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" centos8_01"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","deleteVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" centos8_01"]
         },
         {
             "type": "node",
@@ -152,7 +162,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "deleteSnapshot centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","deleteSnapshot centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02 ubuntu20_02_snapshot1rdp"]
         },
         {
             "type": "node",
@@ -162,7 +172,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 start"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","powerOpVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" centos8_01 start"]
         },
         {
             "type": "node",
@@ -172,7 +182,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 reboot"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","powerOpVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 reboot"]
         },
         {
             "type": "node",
@@ -182,7 +192,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 autostart"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","powerOpVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 autostart"]
         },
         {
             "type": "node",
@@ -192,7 +202,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 noautostart"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","powerOpVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01 noautostart"]
         },
         {
             "type": "node",
@@ -202,7 +212,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "powerOpVM centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" windows10_01 forcestop"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","powerOpVM centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" windows10_01 forcestop"]
         },
         {
             "type": "node",
@@ -212,7 +222,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "rebootHost centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\""]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","rebootHost centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\""]
         },
         {
             "type": "node",
@@ -222,7 +232,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listCatalog centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\""]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","listCatalog centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\""]
         },
         {
             "type": "node",
@@ -232,7 +242,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listVMs centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" all"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","listVMs centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" all"]
         },
         {
             "type": "node",
@@ -242,7 +252,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "listSnapshots centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","listSnapshots centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" ubuntu20_02"]
         },
         {
             "type": "node",
@@ -252,7 +262,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-e", "findVNC centos8 <host ip> root <password> \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01"]
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-e","findVNC centos8 188.214.132.8 \"05:42:b0:4f:c7:6d:76:b8:a9:ca:7c:ce:42:ed:df:1b\" fedora31_01"]
         }
     ]
 }
