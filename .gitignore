@@ -2,6 +2,7 @@
 logs
 *.log
 lib/3p/xforge
+db/*.db
 
 # Dependency directories
 node_modules/
