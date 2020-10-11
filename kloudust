@@ -10,18 +10,28 @@ const path = require("path");
 const colors = require("colors");
 const args = require("commander");
 const utils = require(`${KLOUD_CONSTANTS.LIBDIR}/utils.js`);
+const dbAbstractor = require(`${KLOUD_CONSTANTS.LIBDIR}/dbAbstractor.js`);
 
 module.exports.kloudust = async function(inprocessArgs) {
     args.description("Kloudust - (C) TekMonks\nHybrid Cloud Platform")
     args.version("Kloudust v0.8.0");
     args.option("-f, --file <path>", "required, full path to the build file");
     args.option("-c, --color", "produce colored output");
+    args.option("-u, --user <user>", "user id");
+    args.option("-p, --password <password>", "user's password");
     args.option("-e, --execute <command>", "execute single command and exit");
     args.parse(inprocessArgs||process.argv);
 
     if (args.color) KLOUD_CONSTANTS.COLORED_OUT = true;
 
     KLOUD_CONSTANTS.LOGBARE("Kloudust - (C) TekMonks\nHybrid Cloud Platform\n\n");
+
+    if (args.user) {    // log the user in if options are provided
+        const password = args.password || await _readPasswordFromConsole();
+        if (!await dbAbstractor.loginUser(args.user, password)) {
+            KLOUD_CONSTANTS.LOGERROR("User not authorized."); KLOUD_CONSTANTS.EXITFAILED(); }
+    }
+
     if (args.file) {
         let fileToExec = _resolvePath(args.file);
         KLOUD_CONSTANTS.LOGINFO(`Starting execution: ${fileToExec}`);
@@ -51,6 +61,13 @@ async function _execCommand(params) {
 function _resolvePath(file) {
     if (fs.existsSync(file)) return path.resolve(file);
     else return (path.resolve(`${__dirname}/${file}`));
+}
+
+async function _readPasswordFromConsole() {
+    return new Promise(resolve => {
+        const rl = require("readline").createInterface({input: process.stdin, output: process.stdout});
+        rl.question("Password?", answer => {rl.close(); resolve(answer);});
+    })
 }
 
 if (require.main === module) module.exports.kloudust();
