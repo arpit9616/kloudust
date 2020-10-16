@@ -19,6 +19,8 @@ module.exports.kloudust = async function(inprocessArgs) {
     args.option("-c, --color", "produce colored output");
     args.option("-u, --user <user>", "user id");
     args.option("-p, --password <password>", "user's password");
+    args.option("-j, --project <project>", "user's project name");
+    args.option("-s, --projdescr <description>", "user's project description");
     args.option("-e, --execute <command>", "execute single command and exit");
     args.parse(inprocessArgs||process.argv);
 
@@ -30,6 +32,9 @@ module.exports.kloudust = async function(inprocessArgs) {
         const password = args.password || await _readPasswordFromConsole();
         if (!await dbAbstractor.loginUser(args.user, password)) {
             KLOUD_CONSTANTS.LOGERROR("User not authorized."); KLOUD_CONSTANTS.EXITFAILED(); }
+
+        KLOUD_CONSTANTS.env.prj = (args.project||"default").toLocaleLowerCase();  // setup project we are using
+        await dbAbstractor.addProject(KLOUD_CONSTANTS.env.prj, args.projdescr||"");   // add project for user and org
     }
 
     if (args.file) {
@@ -45,7 +50,7 @@ module.exports.kloudust = async function(inprocessArgs) {
         KLOUD_CONSTANTS.EXITOK();
     } else if (args.execute) {
         if (await _execCommand(utils.parseArgs(args.execute))) KLOUD_CONSTANTS.EXITOK(); else KLOUD_CONSTANTS.EXITFAILED();
-    } else {args.outputHelp(t=>colors.red(t)); process.exit(1);}
+    } else if (!args.project) {args.outputHelp(t=>colors.red(t)); process.exit(1);}
 }
 
 async function _execCommand(params) {

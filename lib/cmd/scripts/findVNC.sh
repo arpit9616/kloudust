@@ -17,5 +17,5 @@ printf "\n\nConnect via VNC to one of the following\n"
 PORT=`virsh vncdisplay {1} | cut -c 2-`;echo `ip route get 8.8.8.8 | head -1 | cut -d' ' -f7`:`expr 5900 + $PORT`
 echo `hostname`:`expr 5900 + $PORT`
 
-printf "\n\nVM created successfully\n"
+printf "\n\nVNC located successfully\n"
 exit 0

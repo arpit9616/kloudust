@@ -15,7 +15,9 @@ fi
 
 printf "\n\nDeleting {1}\n"
 if ! virsh undefine {1}; then exitFailed; fi
-if ! rm -rf /kloudust/disks/{1}.*; then exitFailed; fi
+if ! rm -rf /kloudust/disks/{1}.qcow2; then exitFailed; fi
+if ! rm -rf /kloudust/metadata/{1}.xml; then exitFailed; fi
+if ! rm -rf /kloudust/metadata/{1}.metadata; then exitFailed; fi
 
 printf "\n\nVM deleted successfully\n"
 exit 0
