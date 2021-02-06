@@ -12,6 +12,8 @@ const args = require("commander");
 const utils = require(`${KLOUD_CONSTANTS.LIBDIR}/utils.js`);
 const dbAbstractor = require(`${KLOUD_CONSTANTS.LIBDIR}/dbAbstractor.js`);
 
+module.exports.init = _=>{}
+
 module.exports.kloudust = async function(inprocessArgs) {
     args.description("Kloudust - (C) TekMonks\nHybrid Cloud Platform")
     args.version("Kloudust v0.8.0");
