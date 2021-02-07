@@ -6,7 +6,7 @@ function exitFailed() {
 }
 
 printf "Showing VM list\n"
-if ! virsh list --all | grep "{2}" | grep "{3}"; then exitFailed; fi
+if ! virsh list --all; then exitFailed; fi
 
 printf "\n\nSuccess\n"
 exit 0
