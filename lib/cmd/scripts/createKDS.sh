@@ -6,24 +6,19 @@ function exitFailed() {
 }
 
 if virsh list --all | grep {1}; then
-    printf "VM already exists. Use a different name.\n"
+    printf "KDS instance with that name already exists. Use a different name.\n"
     exitFailed
 fi
 
-printf "Creating VM {1}\n"
-if [ "{7}" == "windows" ]; then 
-    WIN_DISK_ARGS="--disk /kloudust/drivers/virtio-win_amd64.vfd,device=floppy"
-else
-    WIN_DISK_ARGS=""
-fi;
-if ! virt-install --name {1} --metadata title="{2}" --metadata description="{1}-{2}-{9}-{10}" \
+printf "Creating KDS Instance {1}\n"
+if ! cp /kloudust/catalog/kds.qcow2 /kloudust/disks/{1}.qcow2; then existFailed; fi
+if ! virt-install --name {1} --metadata title="{2}" --metadata description="{1}-{2}-{5}-{6}" \
     --vcpus {3} --ram {4} \
-    --disk path=/kloudust/disks/{1}.qcow2,size={5},format=qcow2 $WIN_DISK_ARGS \
-    --os-type {7} --os-variant {8} \
+    --disk path=/kloudust/disks/{1}.qcow2,format=qcow2 --import \
+    --os-type linux --os-variant centos8 \
     --network network=default \
     --controller type=scsi,model=virtio-scsi \
     --graphics vnc,listen=0.0.0.0 --noautoconsole \
-    {6} \
     --virt-type kvm; then exitFailed; fi
 
 printf "\n\nEnabling autostart\n"
@@ -35,12 +30,9 @@ NAME={1}
 DESCRIPTION="{2}"
 VCPUS={3}
 RAM={4}
-DISK_SIZE={5}
-OS_TYPE={7}
-OS_VARIANT={8}
-INSTALL_DISK="{6}"
-ORG="{9}"
-PROJECT="{10}"
+INSTALL_DISK=/kloudust/catalog/kds.qcow2
+ORG="{5}"
+PROJECT="{6}"
 EOF
 if ! virsh dumpxml {1} > /kloudust/metadata/{1}.xml; then exitFailed; fi
 

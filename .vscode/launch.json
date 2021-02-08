@@ -87,16 +87,6 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Kloudust - Create Fedora 31 VM",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\kloudust",
-            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-j","default","-e","createVM 93.115.29.66 fedora31_01 \\\"Fedora 31 VM - 01\\\" 2 8192 30 fedora31.iso fedora31"]
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "Kloudust - Create Ubuntu 20.04 VDI",
             "skipFiles": [
                 "<node_internals>/**"
@@ -113,6 +103,16 @@
             ],
             "program": "${workspaceFolder}\\kloudust",
             "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-j","default","-e","createVM 93.115.29.66 centos8_01 \\\"CentOS 8 VM - 01\\\" 2 8192 30 centos8.iso centos8"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Create KDS Service",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-j","default","-e","createKDS 93.115.29.66 kds01 \\\"KDS - 01\\\" 4 8192"]
         },
         {
             "type": "node",
@@ -293,6 +293,26 @@
             ],
             "program": "${workspaceFolder}\\kloudust",
             "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-j","default","-e","findVNC windows10_01"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Find IP",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-j","default","-e","findIP kds01"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Kloudust - Find KDS Login",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\kloudust",
+            "args": ["-c","-u","root@tekmonks.com","-p","Kloudust#$562A","-j","default","-e","findKDSLogin kds01"]
         }
     ]
 }
