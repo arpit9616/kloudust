@@ -26,6 +26,8 @@ module.exports.kloudust = async function(inprocessArgs) {
     args.option("-e, --execute <command>", "execute single command and exit");
     args.parse(inprocessArgs||process.argv);
 
+    if (args._optionValues) args = { ...args, ...args._optionValues };
+
     if (args.color) KLOUD_CONSTANTS.COLORED_OUT = true;
 
     KLOUD_CONSTANTS.LOGBARE("Kloudust - (C) TekMonks\nHybrid Cloud Platform\n\n");
