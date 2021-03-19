@@ -7,16 +7,6 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Kloudust - Cause error",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\kloudust",
-            "args": []
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "Kloudust - Add User",
             "skipFiles": [
                 "<node_internals>/**"
