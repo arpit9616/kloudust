@@ -8,8 +8,8 @@ global.KLOUD_CONSTANTS = require(`${__dirname}/lib/constants.js`);
 const fs = require("fs");
 const path = require("path");
 const colors = require("colors");
-const args = require("commander");
 const utils = require(`${KLOUD_CONSTANTS.LIBDIR}/utils.js`);
+const {Command} = require("commander"), args = new Command();
 const dbAbstractor = require(`${KLOUD_CONSTANTS.LIBDIR}/dbAbstractor.js`);
 
 module.exports.init = _=>{}
