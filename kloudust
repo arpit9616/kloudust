@@ -15,6 +15,7 @@ const dbAbstractor = require(`${KLOUD_CONSTANTS.LIBDIR}/dbAbstractor.js`);
 module.exports.init = _=>{}
 
 module.exports.kloudust = async function(inprocessArgs) {
+    args.storeOptionsAsProperties(); 
     args.description("Kloudust - (C) TekMonks\nHybrid Cloud Platform")
     args.version("Kloudust v0.8.0");
     args.option("-f, --file <path>", "required, full path to the build file");
@@ -25,8 +26,6 @@ module.exports.kloudust = async function(inprocessArgs) {
     args.option("-s, --projdescr <description>", "user's project description");
     args.option("-e, --execute <command>", "execute single command and exit");
     args.parse(inprocessArgs||process.argv);
-
-    if (args._optionValues) args = { ...args, ...args._optionValues };
 
     if (args.color) KLOUD_CONSTANTS.COLORED_OUT = true;
 
@@ -54,7 +53,7 @@ module.exports.kloudust = async function(inprocessArgs) {
         KLOUD_CONSTANTS.EXITOK();
     } else if (args.execute) {
         if (await _execCommand(utils.parseArgs(args.execute))) KLOUD_CONSTANTS.EXITOK(); else KLOUD_CONSTANTS.EXITFAILED();
-    } else if (!args.project) {args.outputHelp(t=>colors.red(t)); process.exit(1);}
+    } else if (!args.project) {console.log(args.color?colors.red(args.helpInformation()):args.helpInformation()); KLOUD_CONSTANTS.EXITFAILED();}
 }
 
 async function _execCommand(params) {
