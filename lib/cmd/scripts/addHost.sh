@@ -42,7 +42,7 @@ if ! chgrp -R qemu /kloudust/; then exitFailed; fi
 
 
 printf "\n\nDownloading additional drivers\n"
-curl -L https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win_amd64.vfd > /kloudust/drivers/virtio-win_amd64.vfd
+curl -L https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.185-2/virtio-win-0.1.185.iso > /kloudust/drivers/virtio-win-0.1.185.iso
 
 
 printf "\n\nChanging password, Kloudust is taking over the system\n"

@@ -12,7 +12,7 @@ fi
 
 printf "Creating VM {1}\n"
 if [ "{7}" == "windows" ]; then 
-    WIN_DISK_ARGS="--disk /kloudust/drivers/virtio-win_amd64.vfd,device=floppy"
+    WIN_DISK_ARGS="--disk /kloudust/drivers/virtio-win-0.1.185.iso,device=cdrom"
 else
     WIN_DISK_ARGS=""
 fi;
